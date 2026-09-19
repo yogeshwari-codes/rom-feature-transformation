@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block title %}Home | ROM Feature Transformation{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div>
+
+        <div class="eyebrow">DIGITAL SYSTEM SIMULATOR</div>
+
+        <h1>
+            ROM-Based Feature Transformation
+        </h1>
+
+        <p class="lead">
+            An interactive web application that demonstrates
+            input-to-output feature transformation using a
+            ROM lookup table.
+        </p>
+
+        <div class="buttons">
+
+            <a class="button primary"
+               href="{{ url_for('simulator') }}">
+                Launch Simulator
+            </a>
+
+            <a class="button secondary"
+               href="{{ url_for('rom_table') }}">
+                View ROM Table
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="architecture">
+
+        <div class="flow">4-BIT INPUT</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow">ROM ADDRESS</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow highlight">ROM LOOKUP</div>
+        <div class="arrow">↓</div>
+
+        <div class="flow">TRANSFORMED OUTPUT</div>
+
+    </div>
+
+</section>
+
+
+<section class="cards">
+
+    <div class="card">
+        <h3>ROM Lookup</h3>
+        <p>
+            The input acts as an address and the ROM
+            returns its stored output.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Formula Verification</h3>
+        <p>
+            ROM results are checked against
+            Y = (3X + 5) mod 16.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>Automated Testing</h3>
+        <p>
+            Includes 10 normal cases and
+            5 edge/fault cases.
+        </p>
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div>
+        <strong>{{ total_inputs }}</strong>
+        <span>ROM Addresses</span>
+    </div>
+
+    <div>
+        <strong>16 × 4</strong>
+        <span>ROM Size</span>
+    </div>
+
+    <div>
+        <strong>15</strong>
+        <span>Test Cases</span>
+    </div>
+
+    <div>
+        <strong>4-bit</strong>
+        <span>Input Width</span>
+    </div>
+
+</section>
+
+{% endblock %}

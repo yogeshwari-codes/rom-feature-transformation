@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}Comparison{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="eyebrow">VERIFICATION</div>
+
+    <h1>ROM vs Formula</h1>
+
+    <p>
+        Comparison of every valid input.
+    </p>
+
+</section>
+
+
+<section class="stats">
+
+    <div>
+        <strong>{{ matches }}</strong>
+        <span>Exact Matches</span>
+    </div>
+
+    <div>
+        <strong>{{ mismatches }}</strong>
+        <span>Mismatches</span>
+    </div>
+
+    <div>
+        <strong>16</strong>
+        <span>Inputs Checked</span>
+    </div>
+
+</section>
+
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+    <th>Input</th>
+    <th>Binary</th>
+    <th>ROM</th>
+    <th>Formula</th>
+    <th>Difference</th>
+    <th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for row in rows %}
+
+<tr>
+    <td>{{ row.input }}</td>
+    <td><code>{{ row.binary }}</code></td>
+    <td>{{ row.rom }}</td>
+    <td>{{ row.formula }}</td>
+    <td>{{ row.difference }}</td>
+    <td>
+        {% if row.match %}
+            <span class="pass">MATCH</span>
+        {% else %}
+            <span class="fail">MISMATCH</span>
+        {% endif %}
+    </td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}ROM Feature Transformation{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="{{ url_for('home') }}" class="brand">
+        <span class="logo">ROM</span>
+        <span>Feature Transform</span>
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+    <nav id="navMenu">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('simulator') }}">Simulator</a>
+        <a href="{{ url_for('rom_table') }}">ROM Table</a>
+        <a href="{{ url_for('test_cases') }}">Test Cases</a>
+        <a href="{{ url_for('comparison') }}">Comparison</a>
+        <a href="{{ url_for('analytics') }}">Analytics</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+
+</header>
+
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+
+<footer>
+    ROM-Based Lookup Table for Feature Transformation
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

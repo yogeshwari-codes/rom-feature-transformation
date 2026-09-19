@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="eyebrow">NUMPY + PANDAS</div>
+
+    <h1>Analytics Dashboard</h1>
+
+    <p>
+        Summary statistics generated from the ROM dataset.
+    </p>
+
+</section>
+
+
+<section class="stats">
+
+    <div>
+        <strong>{{ total }}</strong>
+        <span>Total Addresses</span>
+    </div>
+
+    <div>
+        <strong>{{ minimum }}</strong>
+        <span>Minimum Output</span>
+    </div>
+
+    <div>
+        <strong>{{ maximum }}</strong>
+        <span>Maximum Output</span>
+    </div>
+
+    <div>
+        <strong>{{ average }}</strong>
+        <span>Average Output</span>
+    </div>
+
+</section>
+
+
+<section class="card">
+
+    <h2>ROM vs Formula</h2>
+
+    <div class="chart">
+
+        <canvas id="comparisonChart"></canvas>
+
+    </div>
+
+    <p class="center">
+        Exact matches:
+        <strong>{{ matches }}</strong>
+        / {{ total }}
+    </p>
+
+</section>
+
+{% endblock %}

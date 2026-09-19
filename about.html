@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="eyebrow">PROJECT DOCUMENTATION</div>
+
+    <h1>About the Project</h1>
+
+</section>
+
+
+<section class="card">
+
+    <h2>Problem Statement</h2>
+
+    <p>
+        Design a software/simulation solution for
+        “ROM-Based Lookup Table for Feature Transformation”
+        using a digital-system concept and reproducible synthetic data.
+    </p>
+
+
+    <h2>Objective</h2>
+
+    <p>
+        Demonstrate input-to-output mapping using ROM,
+        validate the result using a formula-based transformation,
+        and provide testable outputs, analytics and documentation.
+    </p>
+
+
+    <h2>Digital System Concept</h2>
+
+    <p>
+        A 4-bit input selects one of 16 ROM addresses.
+        The value stored at that address becomes the transformed output.
+    </p>
+
+
+    <h2>Technology Used</h2>
+
+    <div class="chips">
+        <span>Python</span>
+        <span>Flask</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>NumPy</span>
+        <span>Pandas</span>
+        <span>Matplotlib</span>
+        <span>Jupyter</span>
+    </div>
+
+
+    <h2>Reference Formula</h2>
+
+    <pre>Y = (3X + 5) mod 16</pre>
+
+
+    <div class="note">
+        The supplied ROM mapping is a synthetic example.
+        If your faculty has given a specific mapping or formula,
+        update data/rom_table.csv and formula_transform() in app.py.
+    </div>
+
+</section>
+
+{% endblock %}

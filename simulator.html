@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}Simulator{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="eyebrow">LIVE SIMULATION</div>
+
+    <h1>ROM Feature Simulator</h1>
+
+    <p>
+        Enter a decimal input from 0 to 15.
+    </p>
+
+</section>
+
+
+<div class="two-column">
+
+    <section class="card">
+
+        <h2>Enter Input</h2>
+
+        <form method="POST">
+
+            <label for="value">
+                Feature Value
+            </label>
+
+            <input
+                id="value"
+                name="value"
+                type="text"
+                placeholder="Example: 7"
+                required
+            >
+
+            <button
+                class="button primary full"
+                type="submit">
+                Transform Feature
+            </button>
+
+        </form>
+
+        <p class="hint">
+            Valid range: 0–15
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>Transformation Flow</h2>
+
+        <div class="mini-flow">
+            <span>Input</span>
+            <b>→</b>
+            <span>Address</span>
+            <b>→</b>
+            <span>ROM</span>
+            <b>→</b>
+            <span>Output</span>
+        </div>
+
+        <p class="muted">
+            The input selects one of the 16 ROM addresses.
+        </p>
+
+    </section>
+
+</div>
+
+
+{% if result %}
+
+<section class="result">
+
+    {% if result.error %}
+
+        <div class="error">
+            {{ result.error }}
+        </div>
+
+    {% else %}
+
+        <div class="result-grid">
+
+            <div>
+                <span>Input</span>
+                <strong>{{ result.input }}</strong>
+                <small>{{ result.binary }}</small>
+            </div>
+
+            <div>
+                <span>ROM Address</span>
+                <strong>{{ result.input }}</strong>
+                <small>4-bit</small>
+            </div>
+
+            <div>
+                <span>ROM Output</span>
+                <strong>{{ result.rom }}</strong>
+                <small>{{ result.rom_binary }}</small>
+            </div>
+
+            <div>
+                <span>Formula Output</span>
+                <strong>{{ result.formula }}</strong>
+                <small>Y=(3X+5) mod 16</small>
+            </div>
+
+        </div>
+
+
+        <div class="match">
+
+            {% if result.match %}
+                ✓ ROM and formula outputs match
+            {% else %}
+                ✗ ROM and formula outputs do not match
+            {% endif %}
+
+            <span>
+                Difference: {{ result.difference }}
+            </span>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}Test Cases{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="eyebrow">VALIDATION</div>
+
+    <h1>Test Cases</h1>
+
+    <p>
+        Normal and edge/fault test cases required by the project.
+    </p>
+
+</section>
+
+
+<section class="stats">
+
+    <div>
+        <strong>{{ total }}</strong>
+        <span>Total Tests</span>
+    </div>
+
+    <div>
+        <strong>{{ passed }}</strong>
+        <span>Passed</span>
+    </div>
+
+    <div>
+        <strong>{{ failed }}</strong>
+        <span>Failed</span>
+    </div>
+
+    <div>
+        <strong>{{ accuracy }}%</strong>
+        <span>Pass Rate</span>
+    </div>
+
+</section>
+
+
+<h2>10 Normal Test Cases</h2>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Input</th>
+    <th>Expected</th>
+    <th>Actual</th>
+    <th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for row in normal %}
+
+<tr>
+    <td>{{ row.id }}</td>
+    <td>{{ row.input }}</td>
+    <td>{{ row.expected }}</td>
+    <td>{{ row.actual }}</td>
+    <td><span class="pass">{{ row.status }}</span></td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<h2>5 Edge / Fault Cases</h2>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Input</th>
+    <th>Expected</th>
+    <th>Actual</th>
+    <th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for row in edge %}
+
+<tr>
+    <td>{{ row.id }}</td>
+    <td>{{ row.input }}</td>
+    <td>{{ row.expected }}</td>
+    <td>{{ row.actual }}</td>
+    <td><span class="pass">{{ row.status }}</span></td>
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+{% endblock %}
