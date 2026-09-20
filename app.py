@@ -9,8 +9,15 @@ DATA_DIR = BASE_DIR / "data"
 app = Flask(__name__)
 
 # Load the ROM table
-rom_df = pd.read_csv(DATA_DIR / "rom_table.csv")
-
+rom_df = pd.read_csv(
+    DATA_DIR / "rom_table.csv",
+    dtype={
+        "address": int,
+        "binary_input": str,
+        "rom_output": str,
+        "decimal_output": int
+    }
+)
 
 def formula_transform(x):
     """Reference transformation used for verification."""
@@ -212,4 +219,4 @@ def about():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

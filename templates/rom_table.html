@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>ROM Lookup Table</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Binary Input</th>
+            <th>ROM Output</th>
+            <th>Decimal Output</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.address }}</td>
+            <td>{{ record.binary_input }}</td>
+            <td>{{ record.rom_output }}</td>
+            <td>{{ record.decimal_output }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}>
